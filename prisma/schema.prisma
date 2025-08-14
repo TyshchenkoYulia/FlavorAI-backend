@@ -16,9 +16,13 @@ model User {
 }
 
 model Recipe {
-  id          Int    @id @default(autoincrement())
+  id          Int      @id @default(autoincrement())
   title       String
-  description String
+  description String   // Додали опис рецепта
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
   userId      Int
-  user        User   @relation(fields: [userId], references: [id])
+  user        User     @relation(fields: [userId], references: [id])
 }
+
+
